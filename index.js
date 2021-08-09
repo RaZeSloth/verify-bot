@@ -40,7 +40,7 @@ const ageRoleIds = ["863231569452204063", "863231629631160354", "863231697185275
 const colorRoleIds = ["863231013021679647", "863231000787288064", "863231138247344178", "863231185912201218", "863231233760296970", "863231297689616424"];
 const genderRoleIds = ["860782608580870165", "863230930897862686"];
 const RelationshipRoleIds = ["864941351057227836", "864941428333346836"]
-client.on("interactionCreate", (int) => {
+client.on("interactionCreate", async(int) => {
     if (int.isButton()) {
         if (int.customId == "ve") {
             int.deferReply({ ephemeral: true })
@@ -50,15 +50,15 @@ client.on("interactionCreate", (int) => {
 
 
 
-            if (!checkRole(int, colorRoleIds, "Take your color role to verify!")) return;
-            if (!checkRole(int, ageRoleIds, "Take your age role to verify!")) return;
-            if (!checkRole(int, genderRoleIds, "Take your gender role to verify!")) return;
-            if (!checkRole(int, RelationshipRoleIds, "Take your relationship role to verify!")) return;
+            if (!checkRole(int, colorRoleIds, "Take your color role from [here](https://discord.com/channels/822674023367311390/861313316655333387/863576857227690015) to verify!")) return;
+            if (!checkRole(int, ageRoleIds, "Take your age role from [here](https://discord.com/channels/822674023367311390/861313316655333387/863577103558639637) to verify!")) return;
+            if (!checkRole(int, genderRoleIds, "Take your gender role from [here](https://discord.com/channels/822674023367311390/861313316655333387/863577450440032276) to verify!")) return;
+            if (!checkRole(int, RelationshipRoleIds, "Take your relationship role from [here](https://discord.com/channels/822674023367311390/861313316655333387/864943912443183104) to verify!")) return;
 
-            if(int.member?.roles.cache.has("861317112361254962")) return int.followUp("Hmm, seems like you are verified. Contact staff if there are any help needed.")
-            int.followUp("Seems like you have all the role. I'll verify you!")
+            if(int.member?.roles.cache.has("861317112361254962")) return int.followUp("Hmm, seems like you are verified. Contact staff if there is any help needed.")
+            int.followUp("Seems like you have all the roles. I'll verify you!")
 
-            int.member.roles.add("861317112361254962")
+           await int.member.roles.add("861317112361254962").catch(() => {})
 
 
         }
