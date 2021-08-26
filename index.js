@@ -43,7 +43,7 @@ const RelationshipRoleIds = ["864941351057227836", "864941428333346836"]
 client.on("interactionCreate", async(int) => {
     if (int.isButton()) {
         if (int.customId == "ve") {
-            int.deferReply({ ephemeral: true })
+            int.deferReply({ ephemeral: true });
 
 
             
@@ -55,10 +55,10 @@ client.on("interactionCreate", async(int) => {
             if (!checkRole(int, genderRoleIds, "Take your gender role from [here](https://discord.com/channels/822674023367311390/861313316655333387/863577450440032276) to verify!")) return;
             if (!checkRole(int, RelationshipRoleIds, "Take your relationship role from [here](https://discord.com/channels/822674023367311390/861313316655333387/864943912443183104) to verify!")) return;
 
-            if(int.member?.roles.cache.has("861317112361254962")) return int.followUp("Hmm, seems like you are verified. Contact staff if there is any help needed.")
-            int.followUp("Seems like you have all the roles. I'll verify you!")
+            if(int.member?.roles.cache.has("861317112361254962")) return int.followUp("Hmm, seems like you are verified. Contact staff if there is any help needed.");
+            int.followUp("Seems like you have all the roles. I'll verify you!");
 
-           await int.member.roles.add("861317112361254962").catch(() => {})
+           await int.member.roles.add("861317112361254962").catch(() => {});
 
 
         }
