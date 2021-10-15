@@ -69,4 +69,5 @@ client.on("interactionCreate", async(int): Promise<void> => {
 });
 import dotenv from "dotenv";
 dotenv.config()
+//susssss
 client.login(process.env.token)
